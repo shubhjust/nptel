@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .picture-container,
+        .blank-page {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .picture-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .blank-page {
+            display: none;
+            background-color: white;
+        }
+
+        #downloadButton {
+            font-size: 9px; /* Decreased font size to make it smaller */
+            padding: 3px 7px; /* Decreased padding for a more compact button */
+            background-color: #1565c0; /* Lightened color to a more light blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px; /* Slightly decreased border-radius for less rounded corners */
+            margin-top: -10px; /* Adjusted margin to move the button slightly upward */
+        }
+    </style>
+    <title>Your Website</title>
+</head>
+<body>
+    <div class="picture-container">
+        <img src="firstPage.jpg" alt="Your Image">
+    </div>
+    <div class="blank-page" id="blankPage">
+        <button id="downloadButton">Course Certificate</button>
+    </div>
+
+    <script>
+        // Delay for 3 seconds before showing the blank page
+        setTimeout(function() {
+            document.getElementById("blankPage").style.display = "flex";
+        }, 3000);
+
+        // Function to trigger PDF download
+        document.getElementById("downloadButton").addEventListener("click", function() {
+            // Replace 'your-certificate.pdf' with the actual path to your PDF
+            var link = document.createElement("a");
+            link.href = "CourseCertificate.pdf";
+            link.download = "CourseCertificate.pdf";
+            link.click();
+        });
+    </script>
+</body>
+</html>
